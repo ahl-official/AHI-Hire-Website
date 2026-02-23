@@ -7,7 +7,7 @@ import "./index.css";
    Google Apps Script Web App URL.
    See README.md for setup instructions.
 ───────────────────────────────────────────── */
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbysMrUUYNEKkBoFC6eejbUhzxKpksdmewQgEiQbUq8N4XaO7xej6FFVBJJsHfvhpiwb/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzuotRzpA5l08XwJBqQMaVAIHgqKEG92zkhJUAa5_zx768EEIQ4SLY6oC7Ji8Br0Al-iQ/exec";
 const SERVICES = [
   {
     id: "ai",
