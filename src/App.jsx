@@ -3,11 +3,9 @@ import "./index.css";
 
 /* ─────────────────────────────────────────────
    GOOGLE SHEETS CONFIG
-   Replace SCRIPT_URL with your deployed
-   Google Apps Script Web App URL.
-   See README.md for setup instructions.
 ───────────────────────────────────────────── */
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzuotRzpA5l08XwJBqQMaVAIHgqKEG92zkhJUAa5_zx768EEIQ4SLY6oC7Ji8Br0Al-iQ/exec";
+
 const SERVICES = [
   {
     id: "ai",
@@ -15,6 +13,12 @@ const SERVICES = [
     icon: "⚡",
     desc: "Streamline workflows with intelligent automation solutions tailored to your business.",
     sheet: "AI Automation",
+    portfolioTag: "Automation & AI",
+    projects: [
+      { title: "Lead Qualification Bot", tag: "Fintech", desc: "Built an AI-driven pipeline that auto-qualified 1,200+ monthly leads, reducing manual review time by 70%.", metrics: ["70% time saved", "1,200 leads/mo", "Fintech"] },
+      { title: "Invoice Processing Automation", tag: "Logistics", desc: "End-to-end OCR + ML system processing 5,000 invoices daily with 99.2% accuracy.", metrics: ["99.2% accuracy", "5k invoices/day", "Logistics"] },
+      { title: "Customer Churn Prediction", tag: "SaaS", desc: "Predictive model with 87% accuracy helping a SaaS firm retain at-risk customers proactively.", metrics: ["87% accuracy", "Churn reduction", "SaaS"] },
+    ],
   },
   {
     id: "digital",
@@ -22,6 +26,12 @@ const SERVICES = [
     icon: "📡",
     desc: "Drive growth through data-driven campaigns, SEO, and brand strategy.",
     sheet: "Digital Marketing",
+    portfolioTag: "Marketing & Growth",
+    projects: [
+      { title: "E-Commerce SEO Overhaul", tag: "Retail", desc: "Full SEO audit and rebuild for an online retailer, achieving a 3× increase in organic traffic in 6 months.", metrics: ["3× organic traffic", "6 months", "Retail"] },
+      { title: "Performance Ad Campaign", tag: "Healthcare", desc: "Multi-channel paid media campaign delivering 4.8× ROAS for a healthcare brand's digital launch.", metrics: ["4.8× ROAS", "Multi-channel", "Healthcare"] },
+      { title: "Brand Positioning Strategy", tag: "Startup", desc: "Complete brand identity and go-to-market strategy for a Series A startup entering a competitive market.", metrics: ["GTM strategy", "Brand identity", "Startup"] },
+    ],
   },
   {
     id: "production",
@@ -29,6 +39,12 @@ const SERVICES = [
     icon: "🎬",
     desc: "Creative production teams for video, photography, and content creation.",
     sheet: "Productions",
+    portfolioTag: "Creative & Content",
+    projects: [
+      { title: "Corporate Brand Film", tag: "Manufacturing", desc: "Full production of a 4-minute brand documentary used across digital and broadcast channels.", metrics: ["Broadcast quality", "4-min film", "Manufacturing"] },
+      { title: "Product Launch Photography", tag: "Fashion", desc: "Studio and on-location product shoot for a premium fashion label's summer collection.", metrics: ["300+ assets", "Studio & location", "Fashion"] },
+      { title: "Social Content Series", tag: "F&B", desc: "12-week content series across Instagram and TikTok driving 220% engagement growth.", metrics: ["220% engagement", "12-week series", "F&B"] },
+    ],
   },
   {
     id: "accounts",
@@ -36,6 +52,12 @@ const SERVICES = [
     icon: "📊",
     desc: "Skilled accountants and finance professionals for your business needs.",
     sheet: "Accounts",
+    portfolioTag: "Finance & Compliance",
+    projects: [
+      { title: "Annual Audit & Compliance", tag: "Mining", desc: "Full statutory audit and compliance review for a mid-size mining company, delivered on time and within budget.", metrics: ["Zero findings", "On-time", "Mining"] },
+      { title: "Financial Model Build", tag: "PropTech", desc: "3-statement financial model and investor-ready deck for a PropTech startup's funding round.", metrics: ["Series A funded", "3-statement model", "PropTech"] },
+      { title: "CFO-as-a-Service", tag: "NGO", desc: "6-month fractional CFO engagement covering budgeting, reporting and donor compliance.", metrics: ["6 months", "Budget overhaul", "NGO"] },
+    ],
   },
   {
     id: "tech",
@@ -43,6 +65,12 @@ const SERVICES = [
     icon: "💻",
     desc: "Expert developers and engineers for software, web, and mobile projects.",
     sheet: "Technology",
+    portfolioTag: "Software & Engineering",
+    projects: [
+      { title: "Mobile App — Marketplace", tag: "Retail", desc: "Cross-platform marketplace app (iOS & Android) for a retail client, shipped in 14 weeks.", metrics: ["14 weeks", "iOS & Android", "Retail"] },
+      { title: "ERP Integration", tag: "Manufacturing", desc: "Custom SAP integration with legacy systems, unifying data across 4 departments.", metrics: ["4 departments", "SAP integration", "Manufacturing"] },
+      { title: "Web Platform Rebuild", tag: "EdTech", desc: "Full-stack rebuild of an EdTech platform improving load speed by 60% and user retention by 35%.", metrics: ["60% faster", "+35% retention", "EdTech"] },
+    ],
   },
   {
     id: "hr",
@@ -50,58 +78,79 @@ const SERVICES = [
     icon: "🤝",
     desc: "HR specialists to manage your people operations and culture.",
     sheet: "HR",
+    portfolioTag: "People & Culture",
+    projects: [
+      { title: "Executive Search — COO", tag: "Finance", desc: "End-to-end executive search resulting in the placement of a seasoned COO within 3 weeks.", metrics: ["3-week placement", "C-Suite", "Finance"] },
+      { title: "HR Policy Overhaul", tag: "Hospitality", desc: "Complete HR policy and employee handbook redesign for a 200-person hospitality group.", metrics: ["200 employees", "Full compliance", "Hospitality"] },
+      { title: "Graduate Talent Programme", tag: "Consulting", desc: "Designed and ran a 3-month graduate recruitment campaign, placing 18 candidates across 5 departments.", metrics: ["18 placements", "5 departments", "Consulting"] },
+    ],
   },
 ];
 
 const FAQS = [
-  {
-    q: "How does AHL Hire work for employers?",
-    a: "Employers submit a service request through our platform. Our team reviews your requirements and matches you with pre-vetted professionals—whether for a full-time role or a specific project.",
-  },
-  {
-    q: "How does AHL Hire work for job seekers?",
-    a: "Professionals fill out a single talent profile form on our Join Us page. We actively match your skills and preferences against open opportunities from our client companies.",
-  },
-  {
-    q: "What industries do you cover?",
-    a: "We cover AI & Automation, Digital Marketing, Productions, Accounts & Finance, Technology & Development, HR & Recruitment, and more. Our network is always expanding.",
-  },
-  {
-    q: "How long does the hiring process take?",
-    a: "For project-based roles, we can place professionals within 3–5 business days. Full-time placements typically take 1–3 weeks depending on the role complexity.",
-  },
-  {
-    q: "Is there a cost to join as a professional?",
-    a: "No. Joining AHL Hire as a professional is completely free. We are compensated by the companies we place talent with.",
-  },
-  {
-    q: "How are professionals vetted?",
-    a: "Every professional goes through a profile review, skill assessment, and interview with our talent team before being added to our active talent pool.",
-  },
-  {
-    q: "Can I hire for both full-time and contract roles?",
-    a: "Absolutely. AHL Hire supports full-time permanent placements as well as task-based or contract engagements.",
-  },
-  {
-    q: "How do I track my application?",
-    a: "After submitting your form, you will receive a confirmation email. Our team will reach out within 48 hours to discuss next steps.",
-  },
+  { q: "How does AHL Hire work for employers?", a: "Employers submit a service request through our platform. Our team reviews your requirements and matches you with pre-vetted professionals—whether for a full-time role or a specific project." },
+  { q: "How does AHL Hire work for job seekers?", a: "Professionals fill out a single talent profile form on our Join Us page. We actively match your skills and preferences against open opportunities from our client companies." },
+  { q: "What industries do you cover?", a: "We cover AI & Automation, Digital Marketing, Productions, Accounts & Finance, Technology & Development, HR & Recruitment, and more. Our network is always expanding." },
+  { q: "How long does the hiring process take?", a: "For project-based roles, we can place professionals within 3–5 business days. Full-time placements typically take 1–3 weeks depending on the role complexity." },
+  { q: "Is there a cost to join as a professional?", a: "No. Joining AHL Hire as a professional is completely free. We are compensated by the companies we place talent with." },
+  { q: "How are professionals vetted?", a: "Every professional goes through a profile review, skill assessment, and interview with our talent team before being added to our active talent pool." },
+  { q: "Can I hire for both full-time and contract roles?", a: "Absolutely. AHL Hire supports full-time permanent placements as well as task-based or contract engagements." },
+  { q: "How do I track my application?", a: "After submitting your form, you will receive a confirmation email. Our team will reach out within 48 hours to discuss next steps." },
 ];
 
-/* ── Utility: submit to Google Sheets via Apps Script ── */
+/* ── Submit to Google Sheets ── */
 async function submitToSheets(data) {
   try {
     const params = new URLSearchParams({ data: JSON.stringify(data) });
-    await fetch(SCRIPT_URL + "?" + params.toString(), {
-      method: "GET",
-      mode: "no-cors",
-    });
+    await fetch(SCRIPT_URL + "?" + params.toString(), { method: "GET", mode: "no-cors" });
     return true;
   } catch (err) {
     console.error("Sheets error:", err);
     return false;
   }
 }
+
+/* ── Logo component — uses uploaded image, falls back to text ── */
+function Logo() {
+  return (
+    <div className="nav-logo">
+      <img
+        src="/american_hairline_logo.png"
+        alt="American Hairline"
+        onError={(e) => {
+          e.target.style.display = "none";
+          e.target.nextSibling.style.display = "block";
+        }}
+      />
+      <span className="nav-logo-text" style={{ display: "none" }}>American Hairline</span>
+    </div>
+  );
+}
+
+/* ── Social Icons (SVG inline) ── */
+const SocialIcons = {
+  X: () => (
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  ),
+  LinkedIn: () => (
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+  ),
+  Instagram: () => (
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+    </svg>
+  ),
+  Facebook: () => (
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+    </svg>
+  ),
+};
+
 /* ══════════════════════════════════════════
    NAVBAR
 ══════════════════════════════════════════ */
@@ -113,8 +162,8 @@ function Navbar({ page, setPage }) {
   return (
     <>
       <nav className="navbar">
-        <div className="nav-logo" onClick={() => { setPage("home"); setMenuOpen(false); }}>
-          AHL<span>Hire</span>
+        <div onClick={() => { setPage("home"); setMenuOpen(false); }}>
+          <Logo />
         </div>
         <ul className="nav-links">
           {links.map((l) => (
@@ -148,11 +197,28 @@ function Navbar({ page, setPage }) {
    FOOTER
 ══════════════════════════════════════════ */
 function Footer({ setPage }) {
+  const socialLinks = [
+    { Icon: SocialIcons.X, href: "#", label: "X / Twitter" },
+    { Icon: SocialIcons.LinkedIn, href: "#", label: "LinkedIn" },
+    { Icon: SocialIcons.Instagram, href: "#", label: "Instagram" },
+    { Icon: SocialIcons.Facebook, href: "#", label: "Facebook" },
+  ];
+
   return (
     <footer className="site-footer">
       <div className="footer-grid">
         <div>
-          <div className="footer-logo">AHL<span>Hire</span></div>
+          <div className="footer-logo">
+            <img
+              src="/american_hairline_logo.png"
+              alt="American Hairline"
+              onError={(e) => {
+                e.target.style.display = "none";
+                e.target.nextSibling.style.display = "block";
+              }}
+            />
+            <span className="footer-logo-text" style={{ display: "none" }}>American Hairline</span>
+          </div>
           <p className="footer-desc">
             A flexible HR and talent marketplace connecting companies with the right professionals—for full-time roles or project-based work.
           </p>
@@ -177,14 +243,32 @@ function Footer({ setPage }) {
         <div className="footer-col">
           <h5>Connect</h5>
           <div className="footer-social">
-            {["𝕏", "in", "IG", "FB"].map((s) => (
-              <div key={s} className="social-btn">{s}</div>
+            {socialLinks.map(({ Icon, href, label }) => (
+              <a
+                key={label}
+                className="social-btn"
+                href={href}
+                aria-label={label}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon />
+              </a>
             ))}
           </div>
           <div className="footer-contact">
-            <a href="mailto:hello@ahlhire.com">📧 hello@ahlhire.com</a>
-            <a href="tel:+27000000000">📞 +27 (0) 00 000 0000</a>
-            <span>📍 Johannesburg, South Africa</span>
+            <a href="mailto:hello@ahlhire.com">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 7L2 7" /></svg>
+              hello@ahlhire.com
+            </a>
+            <a href="tel:+27000000000">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+              +27 (0) 00 000 0000
+            </a>
+            <span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z" /><circle cx="12" cy="10" r="3" /></svg>
+              Johannesburg, South Africa
+            </span>
           </div>
         </div>
       </div>
@@ -197,106 +281,86 @@ function Footer({ setPage }) {
 }
 
 /* ══════════════════════════════════════════
-   SERVICE FORM MODAL
+   UNIFIED REQUEST FORM
 ══════════════════════════════════════════ */
-function ServiceModal({ service, onClose }) {
+function RequestForm({ defaultDept = "" }) {
   const [form, setForm] = useState({
-    name: "",
-    age: "",
-    email: "",
-    phone: "",
-    serviceType: service.id,
-    details: "",
+    name: "", age: "", email: "", phone: "",
+    department: defaultDept, details: "",
   });
   const [status, setStatus] = useState("idle");
-
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("loading");
+    const service = SERVICES.find((s) => s.id === form.department);
     await submitToSheets({
       ...form,
-      sheet: service.sheet,
+      sheet: service ? service.sheet : "General",
       timestamp: new Date().toISOString(),
     });
     setStatus("success");
   };
 
-  return (
-    <div
-      className="modal-overlay"
-      onClick={(e) => e.target === e.currentTarget && onClose()}
-    >
-      <div className="modal">
-        <button className="modal-close" onClick={onClose}>✕</button>
-        {status === "success" ? (
-          <div className="form-success">
-            <div className="check">✅</div>
-            <h4>Request Submitted!</h4>
-            <p>
-              Thank you! Our team will reach out within 48 hours to discuss
-              your {service.title} requirements.
-            </p>
-            <button className="btn-primary" style={{ marginTop: "1.5rem" }} onClick={onClose}>
-              Close
-            </button>
-          </div>
-        ) : (
-          <>
-            <div style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>{service.icon}</div>
-            <h3>{service.title}</h3>
-            <p>Tell us about your requirements and we'll match you with the right talent.</p>
-            <form onSubmit={handleSubmit}>
-              <div className="form-row">
-                <div className="form-group">
-                  <label>Full Name *</label>
-                  <input required value={form.name} onChange={set("name")} placeholder="Jane Smith" />
-                </div>
-                <div className="form-group">
-                  <label>Age *</label>
-                  <input required type="number" min="18" max="99" value={form.age} onChange={set("age")} placeholder="30" />
-                </div>
-              </div>
-              <div className="form-row">
-                <div className="form-group">
-                  <label>Email Address *</label>
-                  <input required type="email" value={form.email} onChange={set("email")} placeholder="jane@company.com" />
-                </div>
-                <div className="form-group">
-                  <label>Phone Number *</label>
-                  <input required type="tel" value={form.phone} onChange={set("phone")} placeholder="+27 000 000 000" />
-                </div>
-              </div>
-              <div className="form-group">
-                <label>Service Type *</label>
-                <select required value={form.serviceType} onChange={set("serviceType")}>
-                  {SERVICES.map((s) => (
-                    <option key={s.id} value={s.id}>{s.title}</option>
-                  ))}
-                </select>
-              </div>
-              <div className="form-group">
-                <label>Tell us more about your needs</label>
-                <textarea
-                  value={form.details}
-                  onChange={set("details")}
-                  placeholder="Describe your project, timeline, and team size requirements..."
-                />
-              </div>
-              <button
-                type="submit"
-                className="btn-primary"
-                style={{ width: "100%" }}
-                disabled={status === "loading"}
-              >
-                {status === "loading" ? "Submitting..." : "Submit Request →"}
-              </button>
-            </form>
-          </>
-        )}
+  if (status === "success") {
+    return (
+      <div className="form-success">
+        <div className="check">✅</div>
+        <h4>Request Submitted!</h4>
+        <p>Our team will reach out within 48 hours to discuss your requirements.</p>
       </div>
-    </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className="form-row">
+        <div className="form-group">
+          <label>Full Name *</label>
+          <input required value={form.name} onChange={set("name")} placeholder="Jane Smith" />
+        </div>
+        <div className="form-group">
+          <label>Age *</label>
+          <input required type="number" min="18" max="99" value={form.age} onChange={set("age")} placeholder="30" />
+        </div>
+      </div>
+      <div className="form-row">
+        <div className="form-group">
+          <label>Email Address *</label>
+          <input required type="email" value={form.email} onChange={set("email")} placeholder="jane@company.com" />
+        </div>
+        <div className="form-group">
+          <label>Phone Number *</label>
+          <input required type="tel" value={form.phone} onChange={set("phone")} placeholder="+27 000 000 000" />
+        </div>
+      </div>
+      <div className="form-group">
+        <label>Department / Service Required *</label>
+        <select required value={form.department} onChange={set("department")}>
+          <option value="">Select a department</option>
+          {SERVICES.map((s) => (
+            <option key={s.id} value={s.id}>{s.title}</option>
+          ))}
+        </select>
+      </div>
+      <div className="form-group">
+        <label>Tell us about your needs</label>
+        <textarea
+          value={form.details}
+          onChange={set("details")}
+          placeholder="Describe your project, timeline, team size, and any specific requirements..."
+        />
+      </div>
+      <button
+        type="submit"
+        className="btn-primary"
+        style={{ width: "100%" }}
+        disabled={status === "loading"}
+      >
+        {status === "loading" ? "Submitting..." : "Submit Request →"}
+      </button>
+    </form>
   );
 }
 
@@ -348,11 +412,7 @@ function HomePage({ setPage }) {
               ensuring that every business, regardless of industry, can access world-class
               talent quickly and efficiently.
             </p>
-            <button
-              className="btn-outline"
-              style={{ marginTop: "2rem" }}
-              onClick={() => setPage("services")}
-            >
+            <button className="btn-outline" style={{ marginTop: "2rem" }} onClick={() => setPage("services")}>
               Explore Services →
             </button>
           </div>
@@ -388,7 +448,7 @@ function HomePage({ setPage }) {
               <div className="card-icon">{s.icon}</div>
               <div className="card-title">{s.title}</div>
               <div className="card-desc">{s.desc}</div>
-              <span className="card-arrow">Request Talent →</span>
+              <span className="card-arrow">View Work →</span>
             </div>
           ))}
         </div>
@@ -430,12 +490,8 @@ function HomePage({ setPage }) {
           Whether you're hiring or looking for your next opportunity, AHL Hire has you covered.
         </p>
         <div className="hero-btns" style={{ justifyContent: "center" }}>
-          <button className="btn-primary" onClick={() => setPage("services")}>
-            Post a Request
-          </button>
-          <button className="btn-outline" onClick={() => setPage("join")}>
-            Join as a Professional
-          </button>
+          <button className="btn-primary" onClick={() => setPage("services")}>Post a Request</button>
+          <button className="btn-outline" onClick={() => setPage("join")}>Join as a Professional</button>
         </div>
       </section>
     </div>
@@ -446,46 +502,113 @@ function HomePage({ setPage }) {
    PAGE: SERVICES
 ══════════════════════════════════════════ */
 function ServicesPage() {
-  const [activeModal, setActiveModal] = useState(null);
+  const [activeFilter, setActiveFilter] = useState("all");
+  const [formDept, setFormDept] = useState("");
+
+  const handleRequest = (deptId) => {
+    setFormDept(deptId);
+    setTimeout(() => {
+      document.getElementById("request-form-anchor")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
+  };
+
+  const visibleServices = activeFilter === "all"
+    ? SERVICES
+    : SERVICES.filter((s) => s.id === activeFilter);
 
   return (
     <div className="page">
       <div className="page-header">
         <span className="section-tag">Our Services</span>
-        <h1 className="section-title">What Kind of Help Do You Need?</h1>
+        <h1 className="section-title">Work We've Done.<br />Results You Can Expect.</h1>
         <p className="section-sub">
-          Select a service below to submit your talent request. Each submission goes
-          directly to a specialist who will reach out to match you with the right professional.
+          Browse our departments below to see the kind of work we deliver.
+          When you're ready, submit a request and we'll match you with the right professional.
         </p>
       </div>
 
-      <section>
-        <div className="cards-grid">
+      {/* Filter Tab Bar */}
+      <div className="filter-bar-wrap">
+        <div className="filter-bar">
+          <button
+            className={`filter-btn ${activeFilter === "all" ? "active" : ""}`}
+            onClick={() => setActiveFilter("all")}
+          >
+            All
+          </button>
           {SERVICES.map((s) => (
-            <div
-              className="service-card"
+            <button
               key={s.id}
-              onClick={() => setActiveModal(s)}
+              className={`filter-btn ${activeFilter === s.id ? "active" : ""}`}
+              onClick={() => setActiveFilter(s.id)}
             >
-              <div className="card-icon">{s.icon}</div>
-              <div className="card-title">{s.title}</div>
-              <div className="card-desc">{s.desc}</div>
-              <span className="card-arrow">Request This Service →</span>
-            </div>
+              <span className="filter-btn-icon">{s.icon}</span>
+              {s.title}
+            </button>
           ))}
         </div>
-      </section>
+      </div>
 
-      <div className="divider" />
+      {/* Department sections */}
+      {visibleServices.map((s) => (
+        <div className="dept-section" key={s.id}>
+          <div className="dept-header">
+            <div className="dept-info">
+              <span className="dept-icon">{s.icon}</span>
+              <h2 className="dept-title">{s.title}</h2>
+              <p className="dept-desc">{s.desc}</p>
+            </div>
+            <div className="dept-request-btn">
+              <button className="btn-primary" onClick={() => handleRequest(s.id)}>
+                Request Talent →
+              </button>
+            </div>
+          </div>
 
-      <section style={{ background: "var(--bg2)", textAlign: "center" }}>
+          {/* Portfolio cards */}
+          <div className="portfolio-grid">
+            {s.projects.map((proj) => (
+              <div className="portfolio-card" key={proj.title}>
+                <div className="portfolio-img-placeholder">{s.icon}</div>
+                <div className="portfolio-body">
+                  <span className="portfolio-tag">{s.portfolioTag}</span>
+                  <div className="portfolio-title">{proj.title}</div>
+                  <div className="portfolio-desc">{proj.desc}</div>
+                  <div className="portfolio-meta">
+                    {proj.metrics.map((m) => (
+                      <span key={m}>{m}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      {/* Unified Request Form */}
+      <div id="request-form-anchor" className="request-form-section">
+        <div className="request-form-inner">
+          <span className="section-tag">Submit a Request</span>
+          <h2 className="section-title" style={{ marginBottom: "0.5rem" }}>
+            Tell Us What You Need
+          </h2>
+          <p className="section-sub" style={{ marginBottom: "2.5rem" }}>
+            Fill in the form below and select your department. Our team will reach out within 48 hours.
+          </p>
+          <div className="form-card">
+            <RequestForm defaultDept={formDept} key={formDept} />
+          </div>
+        </div>
+      </div>
+
+      {/* How it works */}
+      <section style={{ background: "var(--bg)", textAlign: "center" }}>
         <span className="section-tag">How It Works</span>
-        <h2 className="section-title" style={{ margin: "0 auto 3rem" }}>
-          Three Simple Steps
-        </h2>
+        <h2 className="section-title" style={{ margin: "0 auto 3rem" }}>Three Simple Steps</h2>
         <div className="steps-grid">
           {[
-            ["01", "Choose a Service", "Select the service category that matches your hiring need."],
+            ["01", "Choose a Service", "Select the department that matches your hiring need."],
             ["02", "Fill the Form", "Tell us about your requirements, timeline, and team size."],
             ["03", "Get Matched", "We'll reach out within 48 hours with curated candidate profiles."],
           ].map(([n, t, d]) => (
@@ -497,10 +620,6 @@ function ServicesPage() {
           ))}
         </div>
       </section>
-
-      {activeModal && (
-        <ServiceModal service={activeModal} onClose={() => setActiveModal(null)} />
-      )}
     </div>
   );
 }
@@ -510,29 +629,17 @@ function ServicesPage() {
 ══════════════════════════════════════════ */
 function JoinPage() {
   const [form, setForm] = useState({
-    name: "",
-    age: "",
-    email: "",
-    phone: "",
-    domain: "",
-    experience: "",
-    availability: "",
-    location: "",
-    bio: "",
-    linkedin: "",
+    name: "", age: "", email: "", phone: "",
+    domain: "", experience: "", availability: "",
+    location: "", bio: "", linkedin: "",
   });
   const [status, setStatus] = useState("idle");
-
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("loading");
-    await submitToSheets({
-      ...form,
-      sheet: "Talent Pool",
-      timestamp: new Date().toISOString(),
-    });
+    await submitToSheets({ ...form, sheet: "Talent Pool", timestamp: new Date().toISOString() });
     setStatus("success");
   };
 
@@ -582,7 +689,7 @@ function JoinPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
-                <h3 style={{ marginBottom: "1.5rem", fontSize: "1.25rem" }}>
+                <h3 style={{ marginBottom: "1.5rem", fontSize: "1.6rem" }}>
                   Your Professional Profile
                 </h3>
                 <div className="form-row">
@@ -710,16 +817,11 @@ function FAQsPage() {
 
         <div className="faq-contact-card">
           <h3 style={{ marginBottom: "0.5rem" }}>Still have questions?</h3>
-          <p style={{ color: "var(--muted)", marginBottom: "1.75rem", fontSize: "0.9rem" }}>
+          <p style={{ color: "var(--muted)", marginBottom: "1.75rem", fontSize: "0.9rem", fontWeight: 300 }}>
             Can't find what you're looking for? Send us a message and we'll get back
             to you within 24 hours.
           </p>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Message sent! We'll be in touch soon.");
-            }}
-          >
+          <form onSubmit={(e) => { e.preventDefault(); alert("Message sent! We'll be in touch soon."); }}>
             <div className="form-row">
               <div className="form-group">
                 <label>Your Name *</label>
