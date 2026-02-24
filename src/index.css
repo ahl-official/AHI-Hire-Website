@@ -2,7 +2,7 @@
    PRIMEHIRE — White & Blue Corporate Design System
    Font: Cormorant Garamond (headings) + Jost (body)
 ═══════════════════════════════════════════════════ */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Jost:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* ── Reset ── */
 *,
@@ -151,7 +151,7 @@ h2 em {
   color: #fff;
   padding: 12px 24px;
   border-radius: var(--radius-sm);
-  font-family: 'Jost', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 0.9rem;
   letter-spacing: 0.02em;
@@ -190,7 +190,7 @@ h2 em {
   color: var(--navy);
   padding: 12px 24px;
   border-radius: var(--radius-sm);
-  font-family: 'Jost', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 0.9rem;
   border: 1.5px solid var(--border);
@@ -2165,7 +2165,7 @@ h2 em {
   padding: 20px 0;
   width: 100%;
   text-align: left;
-  font-family: 'Jost', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--navy);
