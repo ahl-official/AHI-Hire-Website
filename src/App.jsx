@@ -27,9 +27,9 @@ const SERVICES = [
       </svg>
     ),
     projects: [
-      { title: "Lead Qualification Bot", tag: "Fintech", desc: "AI-driven pipeline auto-qualifying 1,200+ monthly leads, reducing manual review time by 70%.", metrics: ["70% time saved", "1,200 leads/mo"] },
-      { title: "Invoice Processing", tag: "Logistics", desc: "OCR + ML system processing 5,000 invoices daily with 99.2% accuracy.", metrics: ["99.2% accuracy", "5k/day"] },
-      { title: "Churn Prediction Model", tag: "SaaS", desc: "Predictive model with 87% accuracy helping a SaaS firm retain at-risk customers.", metrics: ["87% accuracy", "Churn −34%"] },
+      { title: "Lead Qualification Bot", tag: "Fintech", image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80&auto=format&fit=crop", desc: "AI-driven pipeline auto-qualifying 1,200+ monthly leads, reducing manual review time by 70%.", metrics: ["70% time saved", "1,200 leads/mo"] },
+      { title: "Invoice Processing", tag: "Logistics", image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80&auto=format&fit=crop", desc: "OCR + ML system processing 5,000 invoices daily with 99.2% accuracy.", metrics: ["99.2% accuracy", "5k/day"] },
+      { title: "Churn Prediction Model", tag: "SaaS", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&auto=format&fit=crop", desc: "Predictive model with 87% accuracy helping a SaaS firm retain at-risk customers.", metrics: ["87% accuracy", "Churn -34%"] },
     ],
   },
   {
@@ -45,9 +45,9 @@ const SERVICES = [
       </svg>
     ),
     projects: [
-      { title: "E-Commerce SEO Overhaul", tag: "Retail", desc: "Full SEO rebuild achieving a 3× increase in organic traffic in 6 months.", metrics: ["3× traffic", "6 months"] },
-      { title: "Performance Ad Campaign", tag: "Healthcare", desc: "Multi-channel paid media delivering 4.8× ROAS for a healthcare brand's launch.", metrics: ["4.8× ROAS", "Multi-channel"] },
-      { title: "Brand Positioning Strategy", tag: "Startup", desc: "Complete brand identity and GTM strategy for a Series A startup.", metrics: ["GTM strategy", "Series A"] },
+      { title: "E-Commerce SEO Overhaul", tag: "Retail", image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80&auto=format&fit=crop", desc: "Full SEO rebuild achieving a 3x increase in organic traffic in 6 months.", metrics: ["3x traffic", "6 months"] },
+      { title: "Performance Ad Campaign", tag: "Healthcare", image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80&auto=format&fit=crop", desc: "Multi-channel paid media delivering 4.8x ROAS for a healthcare brand's launch.", metrics: ["4.8x ROAS", "Multi-channel"] },
+      { title: "Brand Positioning Strategy", tag: "Startup", image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800&q=80&auto=format&fit=crop", desc: "Complete brand identity and GTM strategy for a Series A startup.", metrics: ["GTM strategy", "Series A"] },
     ],
   },
   {
@@ -63,9 +63,9 @@ const SERVICES = [
       </svg>
     ),
     projects: [
-      { title: "Corporate Brand Film", tag: "Manufacturing", desc: "4-minute brand documentary deployed across digital and broadcast channels.", metrics: ["Broadcast quality", "4-min film"] },
-      { title: "Product Launch Photography", tag: "Fashion", desc: "Studio and on-location shoot for a premium fashion label's summer collection.", metrics: ["300+ assets", "Studio & location"] },
-      { title: "Social Content Series", tag: "F&B", desc: "12-week content series driving 220% engagement growth on Instagram & TikTok.", metrics: ["220% engagement", "12-week series"] },
+      { title: "Corporate Brand Film", tag: "Manufacturing", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80&auto=format&fit=crop", desc: "4-minute brand documentary deployed across digital and broadcast channels.", metrics: ["Broadcast quality", "4-min film"] },
+      { title: "Product Launch Photography", tag: "Fashion", image: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=800&q=80&auto=format&fit=crop", desc: "Studio and on-location shoot for a premium fashion label's summer collection.", metrics: ["300+ assets", "Studio and location"] },
+      { title: "Social Content Series", tag: "F&B", image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=80&auto=format&fit=crop", desc: "12-week content series driving 220% engagement growth on Instagram and TikTok.", metrics: ["220% engagement", "12-week series"] },
     ],
   },
   {
@@ -73,7 +73,7 @@ const SERVICES = [
     title: "Accounts & Finance",
     sheet: "Accounts",
     portfolioTag: "Finance & Compliance",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&q=80&auto=format&fit=crop",
     desc: "Skilled accountants and finance professionals for your business needs.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -82,9 +82,9 @@ const SERVICES = [
       </svg>
     ),
     projects: [
-      { title: "Annual Audit & Compliance", tag: "Mining", desc: "Full statutory audit and compliance review for a mid-size mining company.", metrics: ["Zero findings", "On-time delivery"] },
-      { title: "Financial Model Build", tag: "PropTech", desc: "3-statement model and investor deck for a PropTech startup's funding round.", metrics: ["Series A funded", "3-statement model"] },
-      { title: "CFO-as-a-Service", tag: "NGO", desc: "6-month fractional CFO engagement covering budgeting, reporting and donor compliance.", metrics: ["6 months", "Budget overhaul"] },
+      { title: "Annual Audit & Compliance", tag: "Mining", image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80&auto=format&fit=crop", desc: "Full statutory audit and compliance review for a mid-size mining company.", metrics: ["Zero findings", "On-time delivery"] },
+      { title: "Financial Model Build", tag: "PropTech", image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80&auto=format&fit=crop", desc: "3-statement model and investor deck for a PropTech startup's funding round.", metrics: ["Series A funded", "3-statement model"] },
+      { title: "CFO-as-a-Service", tag: "NGO", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80&auto=format&fit=crop", desc: "6-month fractional CFO engagement covering budgeting, reporting and donor compliance.", metrics: ["6 months", "Budget overhaul"] },
     ],
   },
   {
@@ -101,9 +101,9 @@ const SERVICES = [
       </svg>
     ),
     projects: [
-      { title: "Mobile Marketplace App", tag: "Retail", desc: "Cross-platform marketplace (iOS & Android) shipped in 14 weeks.", metrics: ["14 weeks", "iOS & Android"] },
-      { title: "ERP Integration", tag: "Manufacturing", desc: "Custom SAP integration unifying data across 4 departments.", metrics: ["4 departments", "SAP integration"] },
-      { title: "Web Platform Rebuild", tag: "EdTech", desc: "Full-stack rebuild improving load speed by 60% and retention by 35%.", metrics: ["60% faster", "+35% retention"] },
+      { title: "Mobile Marketplace App", tag: "Retail", image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80&auto=format&fit=crop", desc: "Cross-platform marketplace (iOS and Android) shipped in 14 weeks.", metrics: ["14 weeks", "iOS and Android"] },
+      { title: "ERP Integration", tag: "Manufacturing", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80&auto=format&fit=crop", desc: "Custom SAP integration unifying data across 4 departments.", metrics: ["4 departments", "SAP integration"] },
+      { title: "Web Platform Rebuild", tag: "EdTech", image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80&auto=format&fit=crop", desc: "Full-stack rebuild improving load speed by 60% and retention by 35%.", metrics: ["60% faster", "+35% retention"] },
     ],
   },
   {
@@ -122,18 +122,18 @@ const SERVICES = [
       </svg>
     ),
     projects: [
-      { title: "Executive Search — COO", tag: "Finance", desc: "End-to-end executive search placing a seasoned COO within 3 weeks.", metrics: ["3-week placement", "C-Suite"] },
-      { title: "HR Policy Overhaul", tag: "Hospitality", desc: "Complete HR policy and handbook redesign for a 200-person hospitality group.", metrics: ["200 employees", "Full compliance"] },
-      { title: "Graduate Talent Programme", tag: "Consulting", desc: "3-month graduate campaign placing 18 candidates across 5 departments.", metrics: ["18 placements", "5 departments"] },
+      { title: "Executive Search: COO", tag: "Finance", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80&auto=format&fit=crop", desc: "End-to-end executive search placing a seasoned COO within 3 weeks.", metrics: ["3-week placement", "C-Suite"] },
+      { title: "HR Policy Overhaul", tag: "Hospitality", image: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=800&q=80&auto=format&fit=crop", desc: "Complete HR policy and handbook redesign for a 200-person hospitality group.", metrics: ["200 employees", "Full compliance"] },
+      { title: "Graduate Talent Programme", tag: "Consulting", image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80&auto=format&fit=crop", desc: "3-month graduate campaign placing 18 candidates across 5 departments.", metrics: ["18 placements", "5 departments"] },
     ],
   },
 ];
 
 const FAQS = [
-  { q: `How does ${BRAND.name} work for employers?`, a: "Employers submit a service request through our platform. Our team reviews your requirements and matches you with pre-vetted professionals—whether for a full-time role or a specific project." },
+  { q: `How does ${BRAND.name} work for employers?`, a: "Employers submit a service request through our platform. Our team reviews your requirements and matches you with pre-vetted professionals, whether for a full-time role or a specific project." },
   { q: `How does ${BRAND.name} work for job seekers?`, a: "Professionals fill out a single talent profile form on our Join Us page. We actively match your skills and preferences against open opportunities from our client companies." },
-  { q: "What industries do you cover?", a: "We cover AI & Automation, Digital Marketing, Productions, Accounts & Finance, Technology & Development, HR & Recruitment, and more. Our network is always expanding." },
-  { q: "How long does the hiring process take?", a: "For project-based roles, we can place professionals within 3–5 business days. Full-time placements typically take 1–3 weeks depending on the role complexity." },
+  { q: "What industries do you cover?", a: "We cover AI and Automation, Digital Marketing, Productions, Accounts and Finance, Technology and Development, HR and Recruitment, and more. Our network is always expanding." },
+  { q: "How long does the hiring process take?", a: "For project-based roles, we can place professionals within 3 to 5 business days. Full-time placements typically take 1 to 3 weeks depending on the role complexity." },
   { q: "Is there a cost to join as a professional?", a: `No. Joining ${BRAND.name} as a professional is completely free. We are compensated by the companies we place talent with.` },
   { q: "How are professionals vetted?", a: "Every professional goes through a profile review, skill assessment, and interview with our talent team before being added to our active talent pool." },
   { q: "Can I hire for both full-time and contract roles?", a: `Absolutely. ${BRAND.name} supports full-time permanent placements as well as task-based or contract engagements.` },
@@ -148,7 +148,14 @@ const TRUST_AVATARS = [
   "https://randomuser.me/api/portraits/women/55.jpg",
 ];
 
-const LOGOS = ["Accenture", "Deloitte", "PwC", "KPMG", "McKinsey", "BCG"];
+const LOGOS = [
+  { name: "Google", svg: <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" /><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" /><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05" /><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" /></svg> },
+  { name: "Microsoft", svg: <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.4 2H2v9.4h9.4V2z" fill="#F25022" /><path d="M22 2h-9.4v9.4H22V2z" fill="#7FBA00" /><path d="M11.4 12.6H2V22h9.4v-9.4z" fill="#00A4EF" /><path d="M22 12.6h-9.4V22H22v-9.4z" fill="#FFB900" /></svg> },
+  { name: "Deloitte", svg: <svg viewBox="0 0 80 24" fill="none"><text x="0" y="18" fontFamily="Arial" fontWeight="700" fontSize="16" fill="#86BC25">Deloitte.</text></svg> },
+  { name: "PwC", svg: <svg viewBox="0 0 60 24" fill="none"><text x="0" y="18" fontFamily="Arial" fontWeight="700" fontSize="16" fill="#D04A02">PwC</text></svg> },
+  { name: "KPMG", svg: <svg viewBox="0 0 70 24" fill="none"><text x="0" y="18" fontFamily="Arial" fontWeight="700" fontSize="16" fill="#00338D">KPMG</text></svg> },
+  { name: "McKinsey", svg: <svg viewBox="0 0 100 24" fill="none"><text x="0" y="18" fontFamily="Arial" fontWeight="700" fontSize="14" fill="#003087">McKinsey</text></svg> },
+];
 
 /* ─────────────────────────────────────────────
    UTILITIES
@@ -493,7 +500,7 @@ function HeroVisual() {
 }
 
 /* ══════════════════════════════════════════
-   WHY PRIMEHIRE — INTERACTIVE GRID
+   WHY PRIMEHIRE   INTERACTIVE GRID
 ══════════════════════════════════════════ */
 const WHY_ITEMS = [
   {
@@ -505,7 +512,7 @@ const WHY_ITEMS = [
     ),
     title: "Fast Turnaround",
     desc: "Get matched with pre-vetted talent within 48 hours.",
-    detail: "From the moment you submit your request, our team starts sourcing. Most clients receive their first shortlist within one business day—not one business week.",
+    detail: "From the moment you submit your request, our team starts sourcing. Most clients receive their first shortlist within one business day, not one business week.",
     stat: "48h", statLabel: "Avg. response time",
   },
   {
@@ -517,8 +524,8 @@ const WHY_ITEMS = [
       </svg>
     ),
     title: "Precision Matching",
-    desc: "Skills, culture, and project fit — not just keywords.",
-    detail: "Our matching process goes beyond résumé scanning. We assess communication style, culture fit, and working patterns to ensure every placement actually sticks.",
+    desc: "Skills, culture, and project fit beyond keywords.",
+    detail: "Our matching process goes beyond resume scanning. We assess communication style, culture fit, and working patterns to ensure every placement actually sticks.",
     stat: "94%", statLabel: "Placement success rate",
   },
   {
@@ -544,7 +551,7 @@ const WHY_ITEMS = [
       </svg>
     ),
     title: "Flexible Engagements",
-    desc: "Full-time, part-time, or contract — your call.",
+    desc: "Full-time, part-time, or contract, your terms.",
     detail: "Whether you need a 2-week specialist or a permanent C-suite executive, we structure the engagement to fit your budget, timeline, and business model.",
     stat: "4 models", statLabel: "Engagement types",
   },
@@ -572,42 +579,28 @@ const WHY_ITEMS = [
     ),
     title: "Dedicated Support",
     desc: "A dedicated manager guides every step.",
-    detail: "You're never passed around. One account manager owns your relationship end-to-end—from briefing to placement to post-hire check-ins at 30, 60, and 90 days.",
+    detail: "You're never passed around. One account manager owns your relationship from briefing to placement to post-hire check-ins at 30, 60, and 90 days.",
     stat: "1 contact", statLabel: "End-to-end ownership",
   },
 ];
 
 function WhyGrid() {
-  const [active, setActive] = useState(null);
-
   return (
     <div className="why-grid">
-      {WHY_ITEMS.map((item) => {
-        const isActive = active === item.id;
-        return (
-          <div
-            className={`why-card ${isActive ? "why-card--active" : ""}`}
-            key={item.id}
-            onClick={() => setActive(isActive ? null : item.id)}
-          >
-            <div className="why-card-top">
-              <div className="why-icon-wrap">
-                {item.icon}
-              </div>
-              <div className="why-expand-icon">{isActive ? "−" : "+"}</div>
-            </div>
+      {WHY_ITEMS.map((item) => (
+        <div className="why-card" key={item.id}>
+          <div className="why-card-header">
+            <div className="why-icon-wrap">{item.icon}</div>
             <h4 className="why-title">{item.title}</h4>
-            <p className="why-desc">{item.desc}</p>
-            <div className={`why-detail ${isActive ? "why-detail--open" : ""}`}>
-              <p className="why-detail-text">{item.detail}</p>
-              <div className="why-stat-row">
-                <span className="why-stat-num">{item.stat}</span>
-                <span className="why-stat-label">{item.statLabel}</span>
-              </div>
-            </div>
           </div>
-        );
-      })}
+          <p className="why-desc">{item.desc}</p>
+          <p className="why-detail-text">{item.detail}</p>
+          <div className="why-stat-row">
+            <span className="why-stat-num">{item.stat}</span>
+            <span className="why-stat-label">{item.statLabel}</span>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
@@ -616,8 +609,6 @@ function WhyGrid() {
    HOME PAGE
 ══════════════════════════════════════════ */
 function HomePage({ setPage }) {
-  const [showAll, setShowAll] = useState(false);
-  const displayed = showAll ? SERVICES : SERVICES.slice(0, 4);
 
   return (
     <div className="page">
@@ -636,7 +627,7 @@ function HomePage({ setPage }) {
             </h1>
             <p className="hero-sub">
               {BRAND.name} connects forward-thinking companies with elite professionals
-              for full-time roles and project-based work—across every industry that drives modern business.
+              for full-time roles and project-based work across every industry that drives modern business.
             </p>
 
             {/* Trust */}
@@ -672,7 +663,10 @@ function HomePage({ setPage }) {
           <p className="logo-strip-label">Trusted by leading organisations</p>
           <div className="logo-strip-row">
             {LOGOS.map((l) => (
-              <span key={l} className="logo-pill">{l}</span>
+              <div key={l.name} className="logo-pill logo-pill--svg">
+                <span className="logo-pill-svg">{l.svg}</span>
+                <span>{l.name}</span>
+              </div>
             ))}
           </div>
         </div>
@@ -704,11 +698,11 @@ function HomePage({ setPage }) {
           <div className="section-header">
             <p className="eyebrow">What We Offer</p>
             <h2 className="section-title">Services built for<br />every business need</h2>
-            <p className="section-sub">From AI automation to creative productions—our talent network spans every critical business function.</p>
+            <p className="section-sub">From AI automation to creative productions, our talent network spans every critical business function.</p>
           </div>
 
           <div className="services-preview-grid">
-            {displayed.map((s) => (
+            {SERVICES.map((s) => (
               <div className="svc-card" key={s.id}>
                 <div className="svc-card-icon">{s.icon}</div>
                 <h3 className="svc-card-title">{s.title}</h3>
@@ -721,15 +715,9 @@ function HomePage({ setPage }) {
           </div>
 
           <div className="section-cta-row">
-            {!showAll ? (
-              <button className="btn-outline" onClick={() => setShowAll(true)}>
-                View All Services
-              </button>
-            ) : (
-              <button className="btn-primary" onClick={() => setPage("services")}>
-                See Full Portfolio <Icons.ArrowRight />
-              </button>
-            )}
+            <button className="btn-primary" onClick={() => setPage("services")}>
+              View all services <Icons.ArrowRight />
+            </button>
           </div>
         </div>
       </section>
@@ -738,9 +726,18 @@ function HomePage({ setPage }) {
       <section className="section section--blue">
         <div className="container">
           <div className="section-header section-header--light">
-            <p className="eyebrow eyebrow--white">Why {BRAND.name}</p>
-            <h2 className="section-title">The smarter way to hire</h2>
-            <p className="section-sub">We don't just fill seats — we match expertise, culture and timeline precisely.</p>
+            <div className="why-heading-row">
+              <div className="why-logo-mark">
+                <svg viewBox="0 0 32 32" fill="none">
+                  <rect width="32" height="32" rx="8" fill="rgba(255,255,255,0.15)" />
+                  <path d="M8 22L14 10L20 18L24 14" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <circle cx="24" cy="14" r="2" fill="white" />
+                </svg>
+              </div>
+              <h2 className="section-title" style={{ marginBottom: 0 }}>The smarter way to hire</h2>
+            </div>
+            <p className="eyebrow eyebrow--white" style={{ marginTop: '12px' }}>Why {BRAND.name}</p>
+            <p className="section-sub">We don't just fill seats. We match expertise, culture and timeline precisely.</p>
           </div>
           <WhyGrid />
         </div>
@@ -756,7 +753,7 @@ function HomePage({ setPage }) {
           </div>
           <div className="cta-banner-right">
             <div className="cta-inner-card">
-              <p className="cta-inner-label">Start today — it's free to enquire</p>
+              <p className="cta-inner-label">Start today, it's free to enquire</p>
               <div className="cta-banner-btns">
                 <button className="btn-primary cta-btn-blue" onClick={() => setPage("services")}>
                   Explore Services <Icons.ArrowRight />
@@ -765,7 +762,7 @@ function HomePage({ setPage }) {
                   Join Our Team
                 </button>
               </div>
-              <div className="cta-trust-row">
+              <div className="cta-trust-row cta-trust-row--horizontal">
                 <div className="cta-trust-item">
                   <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 10l4 4 8-8" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   No upfront cost
@@ -777,6 +774,27 @@ function HomePage({ setPage }) {
                 <div className="cta-trust-item">
                   <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 10l4 4 8-8" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   Pre-vetted talent
+                </div>
+              </div>
+              {/* Social proof */}
+              <div className="cta-social-proof">
+                <div className="cta-proof-item">
+                  <div className="cta-proof-stars">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" fill="#F59E0B" /></svg>
+                    ))}
+                  </div>
+                  <span className="cta-proof-label">4.9 / 5 on Google</span>
+                </div>
+                <div className="cta-proof-divider" />
+                <div className="cta-proof-item">
+                  <span className="cta-proof-num">500+</span>
+                  <span className="cta-proof-label">Happy clients</span>
+                </div>
+                <div className="cta-proof-divider" />
+                <div className="cta-proof-item">
+                  <span className="cta-proof-num">98%</span>
+                  <span className="cta-proof-label">Satisfaction rate</span>
                 </div>
               </div>
             </div>
@@ -876,7 +894,7 @@ function ServicesPage({ setPage }) {
               {s.projects.map((p) => (
                 <div className="portfolio-card" key={p.title}>
                   <div className="portfolio-img-wrap">
-                    <img src={s.image} alt={p.title} className="portfolio-img"
+                    <img src={p.image || s.image} alt={p.title} className="portfolio-img"
                       onError={(e) => { e.target.style.display = "none"; }} />
                     <span className="portfolio-dept-badge">{s.portfolioTag}</span>
                   </div>
@@ -985,13 +1003,13 @@ function JoinPage() {
           <div className="join-grid">
             <div className="join-info">
               <h3>Why join our talent network?</h3>
-              <p>{BRAND.name} actively places professionals in roles that match their skills—not just their job title.</p>
+              <p>{BRAND.name} actively places professionals in roles that match their skills not just their job title.</p>
               <ul className="perk-list">
                 {[
                   "Access to exclusive full-time and project-based opportunities",
                   "Matched by domain and expertise, not keyword filters",
                   "Dedicated talent manager for your placement journey",
-                  "Free to join — we're compensated by hiring companies",
+                  "Free to join   we're compensated by hiring companies",
                   "Opportunities across Africa and international remote roles",
                 ].map((p) => (
                   <li key={p}>
