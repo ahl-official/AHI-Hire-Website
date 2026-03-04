@@ -8,6 +8,81 @@ const SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbzuotRzpA5l08XwJBqQMaVAIHgqKEG92zkhJUAa5_zx768EEIQ4SLY6oC7Ji8Br0Al-iQ/exec";
 const BRAND = { name: "PrimeHire" };
 
+/* ── WhatsApp config ── */
+const WA_NUMBER = "919987921288"; // Change to your actual number (country code + number)
+const WA_MSG_JOBS = encodeURIComponent("Hi! I am a cosmetologist looking for an opportunity. Can you help me?");
+const WA_MSG_HIRE = encodeURIComponent("Hi! I am a salon/brand looking to hire beauty talent. Can we connect?");
+const WA_LINK_JOBS = `https://wa.me/${WA_NUMBER}?text=${WA_MSG_JOBS}`;
+const WA_LINK_HIRE = `https://wa.me/${WA_NUMBER}?text=${WA_MSG_HIRE}`;
+
+function WaButton({ href, children, style = {} }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "8px",
+        background: "#25D366",
+        color: "#fff",
+        padding: "11px 22px",
+        borderRadius: "6px",
+        fontFamily: "'Montserrat', sans-serif",
+        fontWeight: 700,
+        fontSize: "0.85rem",
+        textDecoration: "none",
+        transition: "background 0.2s, transform 0.2s, box-shadow 0.2s",
+        boxShadow: "0 4px 16px rgba(37,211,102,0.35)",
+        whiteSpace: "nowrap",
+        ...style,
+      }}
+      onMouseEnter={e => { e.currentTarget.style.background = "#1ebe5d"; e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(37,211,102,0.45)"; }}
+      onMouseLeave={e => { e.currentTarget.style.background = "#25D366"; e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = "0 4px 16px rgba(37,211,102,0.35)"; }}
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: 18, height: 18, flexShrink: 0 }}>
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+      </svg>
+      {children}
+    </a>
+  );
+}
+
+/* Floating sticky WhatsApp bubble */
+function WaFloatingBubble() {
+  return (
+    <a
+      href={WA_LINK_JOBS}
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Chat with us on WhatsApp"
+      style={{
+        position: "fixed",
+        bottom: "24px",
+        right: "24px",
+        zIndex: 9999,
+        width: "58px",
+        height: "58px",
+        background: "#25D366",
+        borderRadius: "50%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        boxShadow: "0 4px 24px rgba(37,211,102,0.5)",
+        transition: "transform 0.2s, box-shadow 0.2s",
+        animation: "waPulse 2.5s ease-in-out infinite",
+      }}
+      onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.12)"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(37,211,102,0.6)"; }}
+      onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = "0 4px 24px rgba(37,211,102,0.5)"; }}
+    >
+      <svg viewBox="0 0 24 24" fill="white" style={{ width: 30, height: 30 }}>
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+      </svg>
+    </a>
+  );
+}
+
 /* ─────────────────────────────────────────────
    DATA  — Beauty & Hair Industry
 ───────────────────────────────────────────── */
@@ -163,36 +238,36 @@ const SERVICES = [
 
 const FAQS = [
   {
-    q: `How does ${BRAND.name} work for salons and beauty brands?`,
-    a: "Submit a talent request through our platform. Our team reviews your requirements and matches you with pre-screened beauty industry professionals — whether for a full-time role, part-time position, or project-based work.",
+    q: `How does ${BRAND.name} work for salons?`,
+    a: "Tell us what role you need. We'll find you pre-screened candidates from the beauty industry — full-time, part-time, or project-based. Simple as that.",
   },
   {
-    q: "How does it work for beauty professionals looking for opportunities?",
-    a: "Fill out a single talent profile on our Join Us page. We actively match your skills and experience against open roles from our partner salons and beauty brands across Mumbai and beyond.",
+    q: "How does it work for professionals?",
+    a: "Fill out your profile on our Join Us page. We'll match you to salons and brands that are actually looking for someone like you.",
   },
   {
-    q: "What kind of roles do you specialise in?",
-    a: "We focus entirely on the beauty, hair, and content industry. This includes hair extension technicians, hair patch technicians, hairstylists, colourists, salon managers, clinic coordinators, beauty content creators, reel editors, videographers, performance marketers, and social media managers.",
+    q: "What roles do you place?",
+    a: "Only beauty, hair, and content. Hairstylists, colourists, hair extension techs, salon managers, clinic coordinators, beauty content creators, reel editors, performance marketers — if it's beauty, we've got it.",
   },
   {
-    q: "How long does the hiring process take?",
-    a: "For most roles, we share a curated shortlist within 48–72 hours of receiving your request. Full-time placements for senior roles may take up to 1–2 weeks depending on requirements.",
+    q: "How long does it take?",
+    a: "Most salons get a shortlist within 48–72 hours. Senior roles can take 1–2 weeks depending on the brief.",
   },
   {
-    q: "Is there any cost to join as a professional?",
-    a: `No. Joining ${BRAND.name}'s talent network is completely free for professionals. We are compensated by the brands and salons we place talent with.`,
+    q: "Is it free to join as a professional?",
+    a: `100% free for professionals, always. We charge the salons and brands, not you.`,
   },
   {
-    q: "How do you screen candidates before sending them to brands?",
-    a: "Every professional goes through a profile review, a skill evaluation aligned to their specific domain, and a structured interview with our team before being added to our active talent pool. We do not forward unscreened profiles.",
+    q: "How do you check candidates?",
+    a: "Every person goes through a profile check, a skill test for their specific field, and a proper interview with our team. We don't send random profiles — ever.",
   },
   {
-    q: "Do you place candidates outside Mumbai?",
-    a: "Our primary operations are Mumbai-based, but we work with partner salons and beauty brands across India. Remote-eligible roles like content creation, editing, and performance marketing are placed nationally.",
+    q: "Do you place outside Mumbai?",
+    a: "Mumbai is our base, but we work with brands across India. Content, editing, and marketing roles are placed nationally since they can be done remotely.",
   },
   {
-    q: "Can I hire for both full-time and short-term roles?",
-    a: `Absolutely. ${BRAND.name} supports permanent placements as well as contract, freelance, and project-based engagements — whatever structure works best for your salon or brand.`,
+    q: "Can I hire for full-time and short-term both?",
+    a: `Absolutely. Full-time, part-time, freelance, or project-based — whatever works best for your salon.`,
   },
 ];
 
@@ -407,8 +482,7 @@ function Footer({ setPage }) {
             <Logo />
           </button>
           <p className="footer-tagline">
-            A Specialized Talent Network for the Beauty, Hair &amp; Content
-            Industry. Headquartered in Mumbai.
+            Beauty, Hair &amp; Content talent network. Based in Mumbai.
           </p>
         </div>
 
@@ -831,12 +905,12 @@ function WhyGrid() {
 ══════════════════════════════════════════ */
 function IndustryFocusSection() {
   const beautyRoles = [
-    "Hair Extension Technicians",
-    "Hair Patch Technicians",
+    "Cosmetologists",
     "Hairstylists & Colourists",
     "Salon Managers",
     "Clinic Coordinators",
     "Beauty Therapists",
+    "Nail Technicians",
   ];
   const digitalRoles = [
     "Beauty Content Creators",
@@ -851,15 +925,10 @@ function IndustryFocusSection() {
     <section className="section section--gray">
       <div className="container">
         <div className="section-header">
-          <p className="eyebrow">We Specialise In</p>
-          <h2 className="section-title">
-            Roles we understand,<br />
-            <em>deeply.</em>
-          </h2>
+          <p className="eyebrow">What We Do</p>
+          <h2 className="section-title">Roles we know inside out</h2>
           <p className="section-sub">
-            We place talent across two core verticals — on-floor beauty &amp;
-            hair professionals, and the digital talent that grows modern salon
-            brands.
+            On-floor beauty & hair professionals, plus digital talent for modern Mumbai salon brands.
           </p>
         </div>
 
@@ -873,32 +942,12 @@ function IndustryFocusSection() {
                 <path d="M9 9h.01M15 9h.01" />
               </svg>
             </div>
-            <h3 className="svc-card-title">Beauty &amp; Hair Industry Roles</h3>
-            <p className="svc-card-desc">
-              Certified, experienced, and screened professionals for every
-              chair, clinic, and counter.
-            </p>
+            <h3 className="svc-card-title">Beauty &amp; Hair Roles</h3>
+            <p className="svc-card-desc">On-floor professionals for salons and clinics across Mumbai.</p>
             <ul style={{ marginBottom: "20px" }}>
               {beautyRoles.map((role) => (
-                <li
-                  key={role}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    fontSize: "0.9rem",
-                    color: "var(--slate)",
-                    padding: "5px 0",
-                    borderBottom: "1px solid var(--border)",
-                  }}
-                >
-                  <svg
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    style={{ width: 16, height: 16, flexShrink: 0, stroke: "var(--blue)" }}
-                  >
+                <li key={role} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.88rem", color: "var(--slate)", padding: "5px 0", borderBottom: "1px solid var(--border)" }}>
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 16, height: 16, flexShrink: 0, stroke: "var(--blue)" }}>
                     <path d="M4 10l4 4 8-8" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   {role}
@@ -916,48 +965,15 @@ function IndustryFocusSection() {
             </div>
             <h3 className="svc-card-title">
               Digital &amp; Content Roles{" "}
-              <span
-                style={{
-                  fontSize: "0.7rem",
-                  fontFamily: "Poppins, sans-serif",
-                  fontWeight: 600,
-                  color: "var(--blue)",
-                  background: "var(--blue-pale)",
-                  border: "1px solid var(--border-blue)",
-                  padding: "2px 8px",
-                  borderRadius: "99px",
-                  letterSpacing: "0.05em",
-                  verticalAlign: "middle",
-                }}
-              >
-                Beauty-Focused Only
+              <span style={{ fontSize: "0.68rem", fontWeight: 700, color: "var(--blue)", background: "var(--blue-pale)", border: "1px solid var(--border-blue)", padding: "2px 8px", borderRadius: "99px", verticalAlign: "middle" }}>
+                Beauty-Focused
               </span>
             </h3>
-            <p className="svc-card-desc">
-              Digital professionals who understand salon aesthetics, beauty
-              audiences, and content that actually converts.
-            </p>
+            <p className="svc-card-desc">Content and marketing people who actually understand salon brands.</p>
             <ul style={{ marginBottom: "20px" }}>
               {digitalRoles.map((role) => (
-                <li
-                  key={role}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    fontSize: "0.9rem",
-                    color: "var(--slate)",
-                    padding: "5px 0",
-                    borderBottom: "1px solid var(--border)",
-                  }}
-                >
-                  <svg
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    style={{ width: 16, height: 16, flexShrink: 0, stroke: "var(--blue)" }}
-                  >
+                <li key={role} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.88rem", color: "var(--slate)", padding: "5px 0", borderBottom: "1px solid var(--border)" }}>
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 16, height: 16, flexShrink: 0, stroke: "var(--blue)" }}>
                     <path d="M4 10l4 4 8-8" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   {role}
@@ -987,12 +1003,11 @@ function HomePage({ setPage }) {
               Beauty, Hair &amp; Content Industry
             </div>
             <h1 className="hero-heading">
-              A Specialized Talent Network for <em>Beauty &amp; Hair.</em>
+              The Talent Network Built for <em>Beauty &amp; Hair.</em>
             </h1>
             <p className="hero-sub">
-              {BRAND.name} connects premium salons and beauty brands with
-              pre-screened professionals — from hair extension technicians to
-              content creators. Headquartered in Mumbai.
+              {BRAND.name} matches salons and beauty brands with the right
+              people — from hair techs to content creators. Mumbai-based. India-wide.
             </p>
 
             {/* Trust */}
@@ -1023,6 +1038,9 @@ function HomePage({ setPage }) {
               >
                 Explore Services <Icons.ArrowRight />
               </button>
+              <WaButton href={WA_LINK_JOBS}>
+                WhatsApp Us
+              </WaButton>
               <button className="btn-ghost" onClick={() => setPage("join")}>
                 Submit Your Profile
               </button>
@@ -1112,14 +1130,12 @@ function HomePage({ setPage }) {
       <section className="section">
         <div className="container">
           <div className="section-header">
-            <p className="eyebrow">Our Services</p>
+            <p className="eyebrow">What We Do</p>
             <h2 className="section-title">
-              Every role the beauty<br />
-              industry demands
+              Every role a salon needs
             </h2>
             <p className="section-sub">
-              From skilled technicians to reel editors, we place the people that
-              keep premium salon and beauty brands running.
+              From hair techs to reel editors — we find the right person, fast.
             </p>
           </div>
 
@@ -1163,15 +1179,14 @@ function HomePage({ setPage }) {
                 </svg>
               </div>
               <h2 className="section-title" style={{ marginBottom: 0 }}>
-                Why professionals trust us
+                Why people trust us
               </h2>
             </div>
             <p className="eyebrow eyebrow--white" style={{ marginTop: "12px" }}>
               Why {BRAND.name}
             </p>
             <p className="section-sub">
-              Short. Direct. No generic HR language. We know this industry
-              because we work only inside it.
+              No fluff. No generic HR. We live inside this industry — that's why we get it right.
             </p>
           </div>
           <WhyGrid />
@@ -1182,13 +1197,12 @@ function HomePage({ setPage }) {
       <section className="section section--gray hiw-section">
         <div className="container">
           <div className="section-header">
-            <p className="eyebrow">Our Process</p>
+            <p className="eyebrow">How It Works</p>
             <h2 className="section-title">
-              Structure you can rely on
+              Simple. No drama.
             </h2>
             <p className="section-sub">
-              A clear, organised system from first contact to placed candidate.
-              Structure is how we build trust.
+              Submit → We screen → You meet the right people. That's it.
             </p>
           </div>
           <div className="steps-row">
@@ -1242,12 +1256,11 @@ function HomePage({ setPage }) {
           <div className="cta-banner-left">
             <p className="eyebrow">Get Started</p>
             <h2 className="cta-banner-title">
-              Ready to find the right<br />
-              fit for your salon?
+              Looking for the right<br />
+              person for your salon?
             </h2>
             <p className="cta-banner-sub">
-              Whether you're a salon hiring or a professional looking for your
-              next role, {BRAND.name} has you covered — Mumbai and beyond.
+              Hiring or looking for work — {BRAND.name} has you. Mumbai and beyond.
             </p>
           </div>
           <div className="cta-banner-right">
@@ -1260,6 +1273,9 @@ function HomePage({ setPage }) {
                 >
                   Submit Your Profile <Icons.ArrowRight />
                 </button>
+                <WaButton href={WA_LINK_JOBS} style={{ width: "100%", justifyContent: "center" }}>
+                  WhatsApp Us for Opportunities
+                </WaButton>
                 <button
                   className="btn-ghost cta-btn-ghost"
                   onClick={() => setPage("services")}
@@ -1361,14 +1377,13 @@ function ServicesPage({ setPage }) {
     <div className="page">
       <div className="page-hero page-hero--center">
         <div className="container">
-          <p className="eyebrow">Our Services</p>
+          <p className="eyebrow">Services</p>
           <h1 className="page-hero-title">
-            Talent placed.<br />
-            <em>Results delivered.</em>
+            Right people,<br />
+            <em>placed fast.</em>
           </h1>
           <p className="page-hero-sub">
-            Browse our service areas, see the kind of roles we fill, and
-            request the right professional for your salon or brand.
+            Browse what we do, see the roles we fill, and send us a request.
           </p>
         </div>
       </div>
@@ -1409,12 +1424,17 @@ function ServicesPage({ setPage }) {
                 <h2 className="dept-title">{s.title}</h2>
                 <p className="dept-desc">{s.desc}</p>
               </div>
-              <button
-                className="btn-primary dept-cta"
-                onClick={() => scrollToForm(s.id)}
-              >
-                Request Talent <Icons.ArrowRight />
-              </button>
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px", flexShrink: 0, alignSelf: "flex-start" }}>
+                <button
+                  className="btn-primary dept-cta"
+                  onClick={() => scrollToForm(s.id)}
+                >
+                  Request Talent <Icons.ArrowRight />
+                </button>
+                <WaButton href={WA_LINK_HIRE} style={{ fontSize: "0.78rem", padding: "8px 16px" }}>
+                  WhatsApp Us
+                </WaButton>
+              </div>
             </div>
 
             <div className="portfolio-grid">
@@ -1461,7 +1481,7 @@ function ServicesPage({ setPage }) {
         <div className="container">
           <div className="section-header">
             <p className="eyebrow">How It Works</p>
-            <h2 className="section-title">Three simple steps</h2>
+            <h2 className="section-title">Three easy steps</h2>
           </div>
           <div className="steps-row">
             {[
@@ -1503,22 +1523,21 @@ function ServicesPage({ setPage }) {
         <div className="container">
           <div className="form-section-inner">
             <div className="form-section-left">
-              <p className="eyebrow">Submit a Request</p>
+              <p className="eyebrow">Hire From Us</p>
               <h2 className="section-title">
-                Tell us what<br />
+                Tell us who<br />
                 you need
               </h2>
               <p className="section-sub">
-                We'll match you with the right professional and get back to you
-                within 48 hours.
+                Fill this in and we'll get back to you within 48 hours with matched profiles.
               </p>
               <ul className="form-perks">
                 {[
-                  "Beauty & hair industry specialists only",
-                  "Pre-screened before we forward any profile",
-                  "Response within 48 hours",
-                  "Full-time, part-time & freelance options",
-                  "No upfront cost to enquire",
+                  "Beauty & hair people only",
+                  "Every profile screened before we share it",
+                  "Back to you in 48 hours",
+                  "Full-time, part-time & freelance",
+                  "Free to enquire",
                 ].map((p) => (
                   <li key={p}>
                     <svg
@@ -1583,12 +1602,11 @@ function JoinPage() {
         <div className="container">
           <p className="eyebrow">Join {BRAND.name}</p>
           <h1 className="page-hero-title">
-            Join Our<br />
-            <em>Talent Network</em>
+            Looking for work?<br />
+            <em>We've got you.</em>
           </h1>
           <p className="page-hero-sub">
-            Submit your profile and we'll match you to verified salons and
-            beauty brands across Mumbai and India. Free to join — always.
+            Drop your profile and we'll match you to salons and brands across Mumbai and India. Always free.
           </p>
         </div>
       </div>
@@ -1597,20 +1615,18 @@ function JoinPage() {
         <div className="container">
           <div className="join-grid">
             <div className="join-info">
-              <h3>Why join our network?</h3>
+              <h3>Why join us?</h3>
               <p>
-                {BRAND.name} works exclusively in the beauty and hair industry.
-                That means the opportunities we send you are actually relevant
-                to your skills.
+                We only work in beauty and hair. So every opportunity we send you is actually relevant to what you do.
               </p>
               <ul className="perk-list">
                 {[
-                  "Access to verified salons and premium beauty brands",
-                  "Matched by skill and domain — not just job title",
-                  "We screen your profile before sharing with any employer",
-                  "Free to join — we're paid by hiring brands",
-                  "Opportunities in Mumbai and across India",
-                  "Full-time, part-time, and freelance roles available",
+                  "Real salons and beauty brands — all verified",
+                  "Matched by what you actually do, not just your job title",
+                  "We don't share your profile without letting you know first",
+                  "Free to join — always. We charge the brands.",
+                  "Jobs in Mumbai and across India",
+                  "Full-time, part-time, and freelance",
                 ].map((p) => (
                   <li key={p}>
                     <svg
@@ -1629,6 +1645,19 @@ function JoinPage() {
                   </li>
                 ))}
               </ul>
+
+              {/* WhatsApp shortcut */}
+              <div style={{ marginTop: "28px", padding: "20px", background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: "12px" }}>
+                <p style={{ fontSize: "0.78rem", fontWeight: 700, color: "#16a34a", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "8px" }}>
+                  Prefer WhatsApp?
+                </p>
+                <p style={{ fontSize: "0.88rem", color: "#374151", marginBottom: "14px", lineHeight: 1.6 }}>
+                  Skip the form — just message us directly and we'll get back to you fast.
+                </p>
+                <WaButton href={WA_LINK_JOBS} style={{ width: "100%", justifyContent: "center" }}>
+                  Message Us on WhatsApp
+                </WaButton>
+              </div>
             </div>
 
             <div className="form-card">
@@ -1654,55 +1683,27 @@ function JoinPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="form-grid">
-                  <div className="form-group">
-                    <label>Full Name *</label>
-                    <input
-                      required
-                      value={form.name}
-                      onChange={set("name")}
-                      placeholder="Priya Sharma"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Phone Number *</label>
-                    <input
-                      required
-                      type="tel"
-                      value={form.phone}
-                      onChange={set("phone")}
-                      placeholder="+91 90000 00000"
-                    />
-                  </div>
                   <div className="form-group span-2">
-                    <label>Email Address *</label>
-                    <input
-                      required
-                      type="email"
-                      value={form.email}
-                      onChange={set("email")}
-                      placeholder="priya@email.com"
-                    />
-                  </div>
-                  <div className="form-group span-2">
-                    <label>Your Primary Field *</label>
+                    <label>I am a Cosmetologist — my specialisation is *</label>
                     <select
                       required
                       value={form.domain}
                       onChange={set("domain")}
                     >
-                      <option value="">Select your specialisation…</option>
+                      <option value="">Select your field…</option>
+                      <option>Hairstylist & Colourist</option>
                       <option>Hair Extension Technician</option>
                       <option>Hair Patch Technician</option>
-                      <option>Hairstylist & Colourist</option>
+                      <option>Makeup Artist</option>
+                      <option>Nail Technician</option>
+                      <option>Skin Care Specialist</option>
+                      <option>Beauty Therapist</option>
                       <option>Salon Manager</option>
                       <option>Clinic Coordinator</option>
-                      <option>Beauty Therapist</option>
                       <option>Beauty Content Creator</option>
-                      <option>Reel Editor</option>
-                      <option>Videographer</option>
+                      <option>Reel Editor / Videographer</option>
                       <option>Performance Marketer</option>
                       <option>Social Media Manager</option>
-                      <option>Brand Strategist</option>
                       <option>Other</option>
                     </select>
                   </div>
@@ -1801,14 +1802,13 @@ function FAQsPage() {
         <div className="faq-bg-shape faq-shape-2" />
         <div className="faq-bg-shape faq-shape-3" />
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
-          <p className="eyebrow">Help Centre</p>
+          <p className="eyebrow">FAQs</p>
           <h1 className="page-hero-title">
-            Frequently asked<br />
-            <em>questions</em>
+            Got questions?<br />
+            <em>We've got answers.</em>
           </h1>
           <p className="page-hero-sub">
-            Answers for salons, beauty brands, and professionals navigating the{" "}
-            {BRAND.name} network.
+            Everything salons, brands, and professionals ask us — straight up.
           </p>
         </div>
       </div>
@@ -1881,6 +1881,14 @@ function FAQsPage() {
                     Send Question <Icons.ArrowRight />
                   </button>
                 </div>
+                <div className="span-2" style={{ textAlign: "center", padding: "4px 0 2px" }}>
+                  <span style={{ fontSize: "0.75rem", color: "#94A3B8", fontWeight: 500 }}>— or —</span>
+                </div>
+                <div className="span-2">
+                  <WaButton href={WA_LINK_JOBS} style={{ width: "100%", justifyContent: "center" }}>
+                    Ask on WhatsApp
+                  </WaButton>
+                </div>
               </form>
             </div>
           </div>
@@ -1909,6 +1917,7 @@ export default function App() {
         {page === "faqs" && <FAQsPage />}
       </main>
       <Footer setPage={setPage} />
+      <WaFloatingBubble />
     </>
   );
 }
